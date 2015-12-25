@@ -98,6 +98,10 @@ class FDSSmarty extends Smarty {
         $lstTemplate = self::$lstPathTemplate;
         self::$obSmarty->display($lstTemplate);
     }
+    
+    /*
+     * Verifica si existe template
+     */
 
     public static function verifica_template($pstTemplate) {
 
@@ -108,6 +112,18 @@ class FDSSmarty extends Smarty {
         } else {
             self::$lboExiste = false;
         }
+    }
+    
+    /*
+     * 
+     * Obtienes la vista en formato html, si no ocurre ningun error de compilación
+     * 
+     */
+
+    public static function view() {
+
+        $lstTemplate = self::$lstPathTemplate;
+        return self::$obSmarty->fetch($lstTemplate);
     }
 
 }
